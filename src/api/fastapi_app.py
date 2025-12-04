@@ -3,7 +3,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import urlparse, parse_qs
 import requests
 
-API_KEY = "30c603aed4a246bf9090266f7608d84a"
+API_KEY = "key"
 BASE_URL = "https://newsapi.org/v2"
 
 PORT = 8000  # Port to run your backend
