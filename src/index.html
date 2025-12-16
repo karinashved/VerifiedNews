@@ -2,83 +2,98 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News Aggregator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>News Aggregator</h1>
+    <header>
+        <h1>News Aggregator</h1>
+    </header>
 
-    <div class="form-container">
-        <div class="form-group">
-            <label for="endpoint">Endpoint:</label>
-            <select id="endpoint">
-                <option value="everything">Everything</option>
-                <option value="top-headlines">Top Headlines</option>
-            </select>
+    <div class="container">
+        <div class="form-container">
+            <h2>Search News</h2>
+            <div class="form-group">
+                <label for="endpoint">Endpoint:</label>
+                <select id="endpoint">
+                    <option value="everything">Everything</option>
+                    <option value="top-headlines">Top Headlines</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="query">Search Query:</label>
+                <input type="text" id="query" placeholder="e.g. Python, AI">
+            </div>
+
+            <div id="top-headlines-options">
+                <div class="form-group">
+                    <label for="country">Country:</label>
+                    <select id="country">
+                        <option value="">Any</option>
+                        <option value="us">United States</option>
+                        <option value="gb">United Kingdom</option>
+                        <option value="ru">Russia</option>
+                        <option value="de">Germany</option>
+                        <option value="fr">France</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category">
+                        <option value="">Any</option>
+                        <option value="business">Business</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="general">General</option>
+                        <option value="health">Health</option>
+                        <option value="science">Science</option>
+                        <option value="sports">Sports</option>
+                        <option value="technology">Technology</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="everything-options">
+                <div class="form-group">
+                    <label for="language">Language:</label>
+                    <select id="language">
+                        <option value="">Any</option>
+                        <option value="en">English</option>
+                        <option value="ru">Russian</option>
+                        <option value="de">German</option>
+                        <option value="fr">French</option>
+                        <option value="es">Spanish</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="from">Date From:</label>
+                    <input type="date" id="from">
+                </div>
+                <div class="form-group">
+                    <label for="to">Date To:</label>
+                    <input type="date" id="to">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="page_size">Results per page:</label>
+                <input type="number" id="page_size" value="20" min="1" max="100">
+            </div>
+
+            <button id="searchBtn">Search</button>
         </div>
 
-        <div class="form-group">
-            <label for="query">Search Query:</label>
-            <input type="text" id="query" placeholder="e.g. Python, AI">
+        <div class="articles-container">
+            <h2>Results</h2>
+            <div id="loader" class="loader" style="display: none;"></div>
+            <div class="articles" id="articles"></div>
         </div>
-
-        <div class="form-group">
-            <label for="language">Language:</label>
-            <select id="language">
-                <option value="">Any</option>
-                <option value="en">English</option>
-                <option value="ru">Russian</option>
-                <option value="de">German</option>
-                <option value="fr">French</option>
-                <option value="es">Spanish</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="country">Country (Top Headlines):</label>
-            <select id="country">
-                <option value="">Any</option>
-                <option value="us">United States</option>
-                <option value="gb">United Kingdom</option>
-                <option value="ru">Russia</option>
-                <option value="de">Germany</option>
-                <option value="fr">France</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="category">Category (Top Headlines):</label>
-            <select id="category">
-                <option value="">Any</option>
-                <option value="business">Business</option>
-                <option value="entertainment">Entertainment</option>
-                <option value="general">General</option>
-                <option value="health">Health</option>
-                <option value="science">Science</option>
-                <option value="sports">Sports</option>
-                <option value="technology">Technology</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="from">Date From:</label>
-            <input type="date" id="from">
-        </div>
-
-        <div class="form-group">
-            <label for="to">Date To:</label>
-            <input type="date" id="to">
-        </div>
-
-        <div class="form-group">
-            <label for="page_size">Results:</label>
-            <input type="number" id="page_size" value="20" min="1" max="100">
-        </div>
-
-        <button id="searchBtn">Search</button>
     </div>
 
-    <div class="articles" id="articles"></div>
+    <footer>
+        <p>Powered by <a href="https://newsapi.org/" target="_blank">NewsAPI.org</a></p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
