@@ -174,7 +174,7 @@ def news(
 
 
 if __name__ == "__main__":
-    # Convenience for: python fastapi_app.py
+    # Convenience for: python app.py
     import uvicorn
 
-    uvicorn.run("news:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
